@@ -1,65 +1,24 @@
-extends partial/layout
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1"><meta name="description" content=""><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="/images/favicon.png"><link rel="icon" href="/images/favicon.png"><!--[if lt IE 9]>
+<script src="/js/modernizr.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/css/iconfont.css">
 
-block site_title
-    != page.title
-block styles
-    != css('css/index.css?v='+date(Date.now(), 'YYYYMMDDHHmm'),'css/info.css?v='+date(Date.now(), 'YYYYMMDDHHmm'))
-    link(href="https://cdn.bootcss.com/highlight.js/9.15.9/styles/github.min.css", rel='stylesheet')
-block container
-    main
-        .con_warp
-            .infosbox
-                .newsview
-                    h3.news_title!= page.title
-                    .bloginfo
-                        ul
-                            li.author
-                                | 作者：
-                                a(href='/')!= getValue(page, "author") || getConfig('author')
-                            li.lmname
-                                a(href='/')!= getValue(page, "categories.data.0.name")
-                            li.timer!= '时间：' + date(page.date, "YYYY-MM-DD HH:mm:ss")
-                            li.view
-                                span#busuanzi_value_page_pv 99
-                                span 次访问
-                    .tags
-                        each tag in getValue(page,"tags.data",[])
-                            a(href=url_for(tag.path), target='_blank')!= tag.name
-                    - if(page.excerpt)
-                        .news_about
-                            strong 简介
-                            != page.excerpt
-                     .news_con!= page.more || page.content
-                .nextinfo
-                    p 上一篇：
-                        - var prev = getValue(page,"prev");
-                        if(prev)
-                            a(href=url_for(prev.path))!= prev.title
-                        else
-                            != '没有了'
-                    p 下一篇：
-                        - var next = getValue(page,"next");
-                            if(next)
-                                a(href=url_for(next.path))!= next.title
-                            else
-                                != '没有了'
-                - if(page.comments)
-                    .news_pl
-                        include mixins/scripts
-                        +comment()
-    aside.r_box
-        include mixins/right
-        +card()
-        +category()
-        +wechat()
-
-block scripts
-    include mixins/scripts
-    +canvas()
-    script(src="https://cdn.bootcss.com/highlight.js/9.15.9/highlight.min.js")
-    script(src="https://cdn.bootcss.com/highlight.js/9.15.9/languages/java.min.js")
-    script(src="https://cdn.bootcss.com/highlight.js/9.15.9/languages/javascript.min.js")
-    script(type='text/javascript').
-        hljs.initHighlightingOnLoad();
-    script(async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js")
-    != js('js/common.js?v='+date(Date.now(), 'YYYYMMDDHHmm'),'js/index.js?v='+date(Date.now(), 'YYYYMMDDHHmm'))
+<link rel="stylesheet" href="/css/index.css?v=202311290851.css">
+<link rel="stylesheet" href="/css/info.css?v=202311290851.css">
+<link href="https://cdn.bootcss.com/highlight.js/9.15.9/styles/github.min.css" rel="stylesheet"><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header id="header" class="header-navigation"><nav><div class="logo"><a href="http://example.com">Hexo</a></div><h2 id="mnavh"><span class="navicon"></span></h2><ul id="starlist"><li><a href="/">首页</a></li><li><a href="/time.html">时间轴</a></li></ul><div class="searchbox"><div id="search_bar" class="search_bar"><input id="keyboard" placeholder="想搜点什么呢.." type="text" name="keyboard" autocomplete="off" class="input"><p class="search_ico"><span></span></p></div></div></nav></header><article><main><div class="con_warp"><div class="infosbox"><div class="newsview"><h3 class="news_title"></h3><div class="bloginfo"><ul><li class="author">作者：<a href="/">John Doe</a></li><li class="lmname"><a href="/"></a></li><li class="timer">时间：2023-11-18 13:05:40</li><li class="view"><span id="busuanzi_value_page_pv">99</span><span>次访问</span></li></ul></div><div class="tags"></div><div class="news_con"></div></div><div class="nextinfo"><p>上一篇：没有了</p><p>下一篇：没有了</p></div></div></div></main><aside class="r_box"><div class="card box"><h2>我的名片</h2><div class="box_con"><p>网名：一笑奈何。</p>
+<p>职业：全栈软件工程师、Java劝退师</p>
+<p>Email：homeanter@163.com</p>
+</div></div><div class="category box"><h2>文章分类</h2><div class="box_con"></div></div><div class="wechat box"><h2>我的微信</h2><div class="box_con"><img src="/images/wechat.png"></div></div></aside></article><footer><section class="footer_bottom"><div class="footer_container"><p class="copyright">Design by
+<a href='https://tianhui.xin' target='_blank'>怪咖晨</a>
+京ICP备16046477号-1
+</p><ul class="social_network"></ul></div></section></footer><div class="cd-top"><i class="iconfont icon-top"></i></div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/scrollreveal.js"></script>
+<script src="/js/hc-sticky.js"></script>
+<script src="/js/canvas-nest.js" type="text/javascript" color="47,135,193" opacity="0.7" zIndex="-2" count="199"></script><script src="https://cdn.bootcss.com/highlight.js/9.15.9/highlight.min.js"></script><script src="https://cdn.bootcss.com/highlight.js/9.15.9/languages/java.min.js"></script><script src="https://cdn.bootcss.com/highlight.js/9.15.9/languages/javascript.min.js"></script><script type="text/javascript">hljs.initHighlightingOnLoad();</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/js/common.js?v=202311290851.js"></script>
+<script src="/js/index.js?v=202311290851.js"></script>
+</body></html>
